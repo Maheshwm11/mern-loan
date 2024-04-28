@@ -6,7 +6,7 @@ const LoaneeDropdown = () => {
 
   const fetchLoaneeList = async () => {
     try {
-      const response = await fetch("http://localhost:5050/loanee");
+      const response = await fetch("/api/loanee");
       if (!response.ok) {
         throw new Error("Failed to fetch loanee list");
       }
@@ -28,7 +28,7 @@ const LoaneeDropdown = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5050/payment/${selectedLoanee}`, {
+      const response = await fetch(`/api/payment/${selectedLoanee}`, {
         method: "GET",
       });
       const totalMonthlyPayments = await response.json();

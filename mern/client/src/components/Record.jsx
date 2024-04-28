@@ -36,7 +36,7 @@ export default function Record() {
 
   useEffect(() => {
     async function fetchLoaneeList() {
-      const response = await fetch("http://localhost:5050/loanee");
+      const response = await fetch("/api/loanee");
       if (!response.ok) {
         console.error("Failed to fetch loanee list");
         return;
@@ -46,7 +46,7 @@ export default function Record() {
     }
 
     async function fetchLoanTypeList() {
-      const response = await fetch("http://localhost:5050/loan-type");
+      const response = await fetch("/api/loan-type");
       if (!response.ok) {
         console.error("Failed to fetch loan type list");
         return;
@@ -71,12 +71,12 @@ export default function Record() {
     e.preventDefault();
     try {
       let method = "POST"; // Default to POST for creating new record
-      let url = "http://localhost:5050/loan"; // Default API endpoint for creating new record
+      let url = "/api/loan"; // Default API endpoint for creating new record
 
       // Check if prevID exists, if so, it's an edit case
       if (prevID != "") {
         method = "PATCH"; // Use PATCH for updating existing record
-        url = `http://localhost:5050/loan/${prevID}`; // API endpoint for updating existing record
+        url = `/api/loan/${prevID}`; // API endpoint for updating existing record
       }
       const response = await fetch(url, {
         method,

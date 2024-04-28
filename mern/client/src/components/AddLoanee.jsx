@@ -15,7 +15,7 @@ const AddLoanee = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5050/loanee", {
+      const response = await fetch("/api/loanee", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

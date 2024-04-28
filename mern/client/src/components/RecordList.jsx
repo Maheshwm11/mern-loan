@@ -53,7 +53,7 @@ export default function LoanRecordList() {
   useEffect(() => {
     async function getLoanRecords() {
       try {
-        const response = await fetch("http://localhost:5050/loan/");
+        const response = await fetch("/api/loan/");
         if (!response.ok) {
           throw new Error(`An error occurred: ${response.statusText}`);
         }
@@ -81,7 +81,7 @@ export default function LoanRecordList() {
   // This method will delete a loan record
   async function deleteLoanRecord(id) {
     try {
-      await fetch(`http://localhost:5050/loan/${id}`, {
+      await fetch(`/api/loan/${id}`, {
         method: "DELETE",
       });
       setLoanRecords(loanRecords.filter((record) => record._id !== id));

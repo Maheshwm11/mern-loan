@@ -10,10 +10,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/loan", loans);
-app.use("/loanee", loanees); // Use loanee routes
-app.use("/loan-type", loanTypes); // Use loan type routes
-app.use("/payment", payment);
+app.use("/api/loan", loans);
+app.use("/api/loanee", loanees); // Use loanee routes
+app.use("/api/loan-type", loanTypes); // Use loan type routes
+app.use("/api/payment", payment);
 
 // Start the Express server
 app.listen(PORT, () => {
